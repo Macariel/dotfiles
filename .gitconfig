@@ -23,8 +23,8 @@
 	list-ahead-branches = "!sh -c \"git branch -v | grep 'ahead'\""
     delete-dead-branches = "! f() { git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`;do git branch -D $branch; done }; f"
     lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-    ccm = "! ~/.bin/git/createCrCommit"
-    cc0 = "! ~/.bin/git/createCrCommit \"$1\" 0"
+    ccm = "! createCrCommit"
+    cc0 = "! createCrCommit \"$1\" 0"
 [merge]
 	tool = meld 
 [mergetool]

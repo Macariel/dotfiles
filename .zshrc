@@ -5,7 +5,7 @@ export ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="my-gozilla"
+ZSH_THEME="gozilla"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -54,7 +54,9 @@ plugins=(git node npm extract svn)
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-export PATH="$PATH:$HOME/.local/bin:$HOME/.bin" # for pip modules
+export PATH="$PATH:$HOME/.local/bin" # for pip modules
+export PATH="$PATH:$HOME/Config/bin"
+
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 export EDITOR="vim"
 
@@ -115,15 +117,13 @@ alias lock="gnome-screensaver-command -l"
 alias cwd="pwd | clipcopy"
 eval $(thefuck --alias) # insert the 'fuck' alias
 
-# teamscale aliases
-alias ts-boot="./gradlew bootstrap"
-alias ts-boot-clean="./gradlew clean bootstrap"
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/opt/google/google-cloud-sdk/path.zsh.inc' ]; then source '/opt/google/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/opt/google/google-cloud-sdk/completion.zsh.inc' ]; then source '/opt/google/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
