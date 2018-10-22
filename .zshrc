@@ -56,6 +56,7 @@ plugins=(git node npm extract svn)
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export PATH="$PATH:$HOME/.local/bin" # for pip modules
 export PATH="$PATH:$HOME/Config/bin"
+export PATH="$PATH:$HOME/.npm-packages/bin"
 
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 export EDITOR="vim"
@@ -106,16 +107,15 @@ function cat_() {
 }
 
 # Aliases
-alias apt-update="sudo apt-get update"
-alias apt-install="sudo apt-get install"
-alias apt-upgrade="sudo apt-get upgrade"
-alias apt-full="sudo apt-get update;sudo apt-get upgrade;sudo apt-get dist-upgrade -y;sudo apt-get autoremove -y;"
+alias apt-full="sudo apt update;sudo apt upgrade;sudo apt dist-upgrade -y;sudo apt autoremove -y;"
 alias loadNeo="setxkbmap de neo"
 alias loadDe="setxkbmap de"
 alias lsold="command ls -rtlh *(D.Om[1,10])"
-alias lock="gnome-screensaver-command -l"
 alias cwd="pwd | clipcopy"
 eval $(thefuck --alias) # insert the 'fuck' alias
+
+# Shortcuts
+bindkey -s '^[l' 'll\n'
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/opt/google/google-cloud-sdk/path.zsh.inc' ]; then source '/opt/google/google-cloud-sdk/path.zsh.inc'; fi
@@ -127,3 +127,9 @@ if [ -f '/opt/google/google-cloud-sdk/completion.zsh.inc' ]; then source '/opt/g
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+# List directory after cd
+function chpwd(){
+    emulate -LR zsh
+    ll
+}

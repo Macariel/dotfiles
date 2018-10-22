@@ -20,6 +20,8 @@ if dein#load_state('/home/pawelka/.vim/bundles')
     call dein#add('vim-scripts/AnsiEsc.vim') " Show shell colors in vim
     call dein#add('JamshedVesuna/vim-markdown-preview') " CTRL-P opens a browser with a preview of the markdown
     call dein#add('rhysd/vim-gfm-syntax') " Highlights for github markdown
+    call dein#add('vim-scripts/groovyindent-unix') " Fixes missing intendation for groovy
+    call dein#add('vim-scripts/bash-support.vim')
 
     " Required:
     call dein#end()
@@ -40,7 +42,7 @@ set number " Personal vim settings
 set wildmenu " set cursorline
 set tabstop=4 " show existing tab with 4 spaces width
 set shiftwidth=4 " when indenting with '>', use 4 spaces width
-set expandtab " On pressing tab, insert 4 spaces
+" set expandtab " On pressing tab, insert 4 spaces
 set timeoutlen=1000 ttimeoutlen=0 " Remove the 1sec delay when leaving the visual mode
 
 " Bind F4 to highlight search results
@@ -94,3 +96,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 if &diff
     colorscheme evening
 endif
+
+" Configure Bash support, when actually programming a bash and not a zsh
+" script
+command BashSupportToBash :let g:BASH_Executable='/bin/bash'
