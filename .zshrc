@@ -43,7 +43,7 @@ COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=~/.oh-my-zsh-custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -116,12 +116,6 @@ eval $(thefuck --alias) # insert the 'fuck' alias
 
 # Shortcuts
 bindkey -s '^[l' 'll\n'
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/opt/google/google-cloud-sdk/path.zsh.inc' ]; then source '/opt/google/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/opt/google/google-cloud-sdk/completion.zsh.inc' ]; then source '/opt/google/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
