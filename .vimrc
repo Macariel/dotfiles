@@ -22,6 +22,7 @@ if dein#load_state('/home/pawelka/.vim/bundles')
     call dein#add('rhysd/vim-gfm-syntax') " Highlights for github markdown
     call dein#add('vim-scripts/groovyindent-unix') " Fixes missing intendation for groovy
     call dein#add('vim-scripts/bash-support.vim')
+    call dein#add('dhruvasagar/vim-table-mode')
 
     " Required:
     call dein#end()
@@ -57,14 +58,11 @@ colorscheme default
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_enable_on_vim_startup = 1
 hi IndentGuidesEven ctermbg=234
-set ts=4 sw=4 et
+set ts=2 sw=2 et
 
 " save file shortcut to CTRL+S
 inoremap <C-s> <esc>:w<cr>
 nnoremap <C-s> :w<cr>
-" save and exit
-" inoremap <C-d> <esc>:wq!<cr>
-" nnoremap <C-d> :wq!<cr>
 
 " quit and discard changes with CTRL+Q
 inoremap <C-q> <esc>:qa!<cr>
@@ -82,6 +80,7 @@ set clipboard=unnamedplus
 " obscure vim commands
 command Format :normal gg=G
 command RemoveTrailingWhitespaces :%s/\s\+$//e
+command FormatJSON :% ! python -m json.tool
 
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
@@ -92,7 +91,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " Markdown config
 :let vim_markdown_preview_github=1
 
-" Use other colorscheme vor vimdiff because the default one is unreadable
+" Use other colorscheme for vimdiff because the default one is unreadable
 if &diff
     colorscheme evening
 endif
@@ -100,3 +99,7 @@ endif
 " Configure Bash support, when actually programming a bash and not a zsh
 " script
 command BashSupportToBash :let g:BASH_Executable='/bin/bash'
+
+"set runtimepath^=~/.vim runtimepath+=~/.vim/after
+"let &packpath=&runtimepath
+"source ~/.vimrc

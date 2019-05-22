@@ -17,7 +17,7 @@
     ri = rebase --interactive
 
     config-work-identiy = !git config --local user.name "\"Timo Pawelka\"" && git config --local user.email "pawelka@cqse.eu"
-    config-github-identity = !git config --local user.name "pawelka" && git config --local user.email "timo.pawelka@gmail.com"
+    config-github-identity = !git config --local user.name "Macariel" && git config --local user.email "timo.pawelka@gmail.com"
 
     diff-latest = diff HEAD~1
     diff-commit = !sh -c 'git diff $1~ $1' -
