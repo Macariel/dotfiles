@@ -23,6 +23,7 @@ if dein#load_state('/home/pawelka/.vim/bundles')
     call dein#add('vim-scripts/groovyindent-unix') " Fixes missing intendation for groovy
     call dein#add('vim-scripts/bash-support.vim')
     call dein#add('dhruvasagar/vim-table-mode')
+    call dein#add('Chiel92/vim-autoformat')
 
     " Required:
     call dein#end()
@@ -68,6 +69,9 @@ nnoremap <C-s> :w<cr>
 inoremap <C-q> <esc>:qa!<cr>
 nnoremap <C-q> :qa!<cr>"
 
+" Assign shortcut to autoformat
+noremap <F3> :Autoformat<CR>
+
 " Allow us to use Ctrl-s and Ctrl-q as keybinds in vim
 silent !stty -ixon
 " Restore default behaviour when leaving Vim.
@@ -81,6 +85,7 @@ set clipboard=unnamedplus
 command Format :normal gg=G
 command RemoveTrailingWhitespaces :%s/\s\+$//e
 command FormatJSON :% ! python -m json.tool
+command FormatSQL :%!sqlformat --reindent --keywords upper --identifiers lower -
 
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving

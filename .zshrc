@@ -26,7 +26,7 @@ DISABLE_UPDATE_PROMPT="true"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=~/.oh-my-zsh-custom
 
-plugins=(git extract svn gradle)
+plugins=(git extract svn gradle zsh-completions alias-tips wd)
 
 # User configuration
 # Path
@@ -34,6 +34,8 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 export PATH="$PATH:$HOME/.local/bin" # pip modules
 export PATH="$PATH:$HOME/Config/bin" # scripts
 export PATH="$PATH:$HOME/.npm-packages/bin" # npm
+export PATH="$PATH:/opt/google-cloud-sdk/bin" # gcloud
+export PATH="$PATH:/snap/bin"
 #export PATH="$HOME/.rbenv/bin:$PATH"
 #export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
@@ -55,3 +57,5 @@ bindkey -s '^[l' 'll\n'
 
 # Ruby
 #eval "$(rbenv init -)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

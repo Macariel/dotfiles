@@ -8,3 +8,8 @@ alias dce="docker-compose exec"
 alias dclog="docker-compose logs --tail 50 -f"
 alias gw="./gradlew"
 eval $(thefuck --alias) # insert the 'fuck' alias
+
+# Extra programs
+alias ls="exa"
+alias la="exa -la"
+alias fd="fdfind"
