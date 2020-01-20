@@ -1,10 +1,16 @@
+# In use
 wd
 z
 exa
 fd-find
 ag #silversearcher
 fzf
-bench
-yank
 tig
+nnn
+
+# Not in use yet
 peco
+yank
+bench
+mc
+ncdu

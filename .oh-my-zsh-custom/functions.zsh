@@ -21,10 +21,15 @@ function c() {
 }
 
 # List directory after cd
-function chpwd(){
+function chpwd() {
     emulate -LR zsh
     ll
 }
 
 # add the z function
 . $HOME/Config/projects/z/z.sh
+
+# Print the weather forecast in the terminal
+function weather() {
+  curl "v2.wttr.in/$1"
+}

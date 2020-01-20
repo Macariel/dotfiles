@@ -19,10 +19,10 @@ if dein#load_state('/home/pawelka/.vim/bundles')
     call dein#add('nathanaelkane/vim-indent-guides') " Smart intedation
     call dein#add('vim-scripts/AnsiEsc.vim') " Show shell colors in vim
     call dein#add('JamshedVesuna/vim-markdown-preview') " CTRL-P opens a browser with a preview of the markdown
-    call dein#add('rhysd/vim-gfm-syntax') " Highlights for github markdown
+"   call dein#add('rhysd/vim-gfm-syntax') " Highlights for github markdown
     call dein#add('vim-scripts/groovyindent-unix') " Fixes missing intendation for groovy
     call dein#add('vim-scripts/bash-support.vim')
-    call dein#add('dhruvasagar/vim-table-mode')
+"   call dein#add('dhruvasagar/vim-table-mode')
     call dein#add('Chiel92/vim-autoformat')
 
     " Required:
