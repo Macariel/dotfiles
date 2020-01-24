@@ -1,5 +1,0 @@
-"/usr/bin/zsh -c /home/pawelka/Config/bin/setup-displays"
-    Control + Alt + 1
-
-"/usr/bin/zsh -c /home/pawelka/Config/bin/restart-wlan > /home/pawelka/Documents/logs/restart-wlan.log"
-    Control + Alt + 2
