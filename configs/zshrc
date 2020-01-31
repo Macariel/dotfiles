@@ -56,6 +56,10 @@ fi
 # Alt+l for "ll"
 bindkey -s '^[l' 'll\n'
 
+# Add fzf keybindings
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+
 # Ruby
 #eval "$(rbenv init -)"
 

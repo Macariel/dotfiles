@@ -1,0 +1,18 @@
+[submodule "configs/oh-my-zsh"]
+	path = configs/oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "configs/tmux/plugins/tmux-themepack"]
+	path = configs/tmux/plugins/tmux-themepack
+	url = https://git::@github.com/jimeh/tmux-themepack
+[submodule "configs/tmux/plugins/tpm"]
+	path = configs/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "configs/vim/bundles/repos/github.com/Shougo/dein.vim"]
+	path = configs/vim/bundles/repos/github.com/Shougo/dein.vim
+	url = https://github.com/Shougo/dein.vim
+[submodule "configs/oh-my-zsh-custom/plugins/alias-tips"]
+	path = configs/oh-my-zsh-custom/plugins/alias-tips
+	url = https://github.com/djui/alias-tips
+[submodule "configs/oh-my-zsh-custom/plugins/zsh-completions"]
+	path = configs/oh-my-zsh-custom/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions

@@ -1,4 +1,3 @@
-alias apt-full="sudo apt update;sudo apt upgrade;sudo apt dist-upgrade -y;sudo apt autoremove -y;"
 alias loadNeo="setxkbmap de neo"
 alias loadDe="setxkbmap de"
 alias lsold="command ls -rtlh *(D.Om[1,10])"
@@ -14,7 +13,6 @@ alias open_folder="setsid nautilus ."
 # Extra programs
 alias ls="exa"
 alias la="exa -la"
-alias fd="fdfind"
 
 # CQSE it
 alias gcli="/home/pawelka/Workspace/cqse-it/cloud-config/gcli"

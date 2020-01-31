@@ -17,7 +17,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 mkdir Config
 cd Config
-git clone https://github.com/macariel/dotfiles # creating the symlinks need to be done manually for now
+git clone https://github.com/macariel/dotfiles
 ```
 
 ### Setup non-root user
@@ -36,15 +36,6 @@ pacman -S util-linux
 systemctl enable fstrim.timer
 ```
 
-## Fix lspci freeze
-```bash
-echo "blacklist nouveau" >> /etc/modprobe.d/blacklist.conf
-```
-
-## Fix reboot freeze
-`acpi=off` makes it unable to boot  
-Temporary fix: Pressing the shutdown button works
-
 # Graphics
 ## Install drivers
 https://wiki.archlinux.org/index.php/Xorg#Driver_installation
@@ -57,26 +48,8 @@ pacman -Ss xf86-video
 pacman -S nvidia
 ```
 
-## Install xorg
-```bash
-pacman -S xorg-server xorg-xinit
-```
-
-## Install display manager (lightdm)
-```bash
-pacman -S lightdm ligthdm-webkit2-greeter
-```
-Set the greeter
-```bash
-[Seat:*]
-...
-greeter-session=lightdm-yourgreeter-greeter
-```
-Enable the service
-```
-systemctl enable lightdm.service
-```
-
-## Disable discrete GPU on boot
-
-## Install NVIDIA driver
+# System setup
+## Install yay AUR package manager
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si

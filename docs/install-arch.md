@@ -117,7 +117,7 @@ mount /dev/nvme0n1p1 /mnt/boot
 ### Install base system and packages
 
 ```bash
-pacstrap /mnt base base-devel linux linux-firmware dialog wpa_supplicant networkmanager zsh vim git
+pacstrap /mnt base base-devel linux linux-firmware dialog wpa_supplicant networkmanager zsh gvim git z lvm2
 ```
 
 ### Generate fstab
