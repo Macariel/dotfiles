@@ -1,0 +1,68 @@
+# Path to your oh-my-zsh installation.
+export ZSH=~/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="agnoster"
+DEFAULT_USER="pawelka"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line to automatically update without prompting.
+DISABLE_UPDATE_PROMPT="true"
+
+# Would you like to use another custom folder than $ZSH/custom?
+ZSH_CUSTOM=~/.oh-my-zsh-custom
+
+plugins=(git extract alias-tips wd zsh-completions zsh-syntax-highlighting k terraform)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=grey,bg=black,bold,underline"
+
+# User configuration
+## Path
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="$PATH:$HOME/.local/bin" # pip modules
+export PATH="$PATH:$HOME/.config/bin" # scripts
+export PATH="$PATH:$HOME/.npm-global/bin" # npm
+export PATH="$PATH:/opt/google-cloud-sdk/bin" # gcloud
+
+## Variables
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
+export ICAROOT="/opt/Citrix/ICAClient" # Citrix
+export GOPATH="$HOME/Documents/go"
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket" # SSH agent on startup
+
+source $ZSH/oh-my-zsh.sh
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='vim'
+fi
+
+# Shortcut
+# Alt+l for "ll"
+bindkey -s '^[l' 'll\n'
+
+# Add fzf keybindings
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+
+# pnpm
+export PNPM_HOME="/home/pawelka/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

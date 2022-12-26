@@ -1,0 +1,119 @@
+"dein Scripts-----------------------------
+" Ward off unexpected things that your distro might have made, as
+" well as sanely reset options when re-sourcing .vimrc
+set nocompatible
+
+" Set Dein base path (required)
+let s:dein_base = '/home/pawelka/.vim/bundles'
+
+" Set Dein source path (required)
+let s:dein_src = '/home/pawelka/.vim/bundles/repos/github.com/Shougo/dein.vim'
+
+" Set Dein runtime path (required)
+execute 'set runtimepath+=' . s:dein_src
+
+" Call Dein initialization (required)
+call dein#begin(s:dein_base)
+
+call dein#add('Raimondi/delimitMate') " Autocompletion of parenthesis etc.
+call dein#add('nathanaelkane/vim-indent-guides') " Smart intedation
+call dein#add('vim-scripts/AnsiEsc.vim') " Show shell colors in vim
+call dein#add('vim-scripts/bash-support.vim')
+call dein#add('Chiel92/vim-autoformat')
+call dein#add('hashivim/vim-terraform')
+
+call dein#end()
+
+" Attempt to determine the type of a file based on its name and possibly its
+" contents. Use this to allow intelligent auto-indenting for each filetype,
+" and for plugins that are filetype specific.
+if has('filetype')
+  filetype indent plugin on
+endif
+
+" Enable syntax highlighting
+if has('syntax')
+  syntax on
+endif
+
+" Uncomment if you want to install not-installed plugins on startup.
+if dein#check_install()
+ call dein#install()
+endif
+
+"End dein Scripts-------------------------
+set number " Personal vim settings
+set wildmenu " set cursorline
+set tabstop=4 " show existing tab with 4 spaces width
+set shiftwidth=4 " when indenting with '>', use 4 spaces width
+" set expandtab " On pressing tab, insert 4 spaces
+set ttimeout
+set ttimeoutlen=100 " Remove the 1sec delay when leaving the visual mode
+set timeoutlen=3000
+
+" Bind F4 to highlight search results
+:noremap <F4> :set hlsearch! hlsearch?<CR>
+
+" Set the foreground and background colors for the highlighting of matching
+" parenthesis
+hi MatchParen cterm=none ctermbg=green ctermfg=black
+
+" Vim Intent Guides Plugin
+colorscheme default
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_enable_on_vim_startup = 1
+"hi IndentGuidesEven ctermbg=234
+" set ts=2 sw=2 et
+
+" Unbind annoying ex mode and command history browser
+map q: <Nop>
+nnoremap Q <nop>
+
+" save file shortcut to CTRL+S
+inoremap <C-s> <esc>:w<cr>
+nnoremap <C-s> :w<cr>
+
+" quit and discard changes with CTRL+Q
+inoremap <C-q> <esc>:qa!<cr>
+nnoremap <C-q> :qa!<cr>"
+
+" Assign shortcut to autoformat
+noremap <F3> :Autoformat<CR>
+
+" Allow us to use Ctrl-s and Ctrl-q as keybinds in vim
+silent !stty -ixon
+" Restore default behaviour when leaving Vim.
+autocmd VimLeave * silent !stty ixon
+
+" CLIPBOARD: Use the clipboard as the main source for copying and pasting
+set clipboard=unnamedplus
+
+" EASY COMMANDS. Introduce some commands which are easier to memorize than
+" obscure vim commands
+command Format :normal gg=G
+command RemoveTrailingWhitespaces :%s/\s\+$//e
+command FormatJSON :% ! python -m json.tool
+command FormatSQL :%!sqlformat --reindent --keywords upper --identifiers lower -
+
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" Markdown config
+:let vim_markdown_preview_github=1
+
+" Use other colorscheme for vimdiff because the default one is unreadable
+if &diff
+    colorscheme evening
+endif
+
+" Configure Bash support, when actually programming a bash and not a zsh
+" script
+command BashSupportToBash :let g:BASH_Executable='/bin/bash'
+
+"set runtimepath^=~/.vim runtimepath+=~/.vim/after
+"let &packpath=&runtimepath
+"source ~/.vimrc
+autocmd BufNewFile,BufRead *.hcl :set filetype=terraform

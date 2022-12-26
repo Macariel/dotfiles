@@ -1,0 +1,37 @@
+[push]
+	default = simple
+[core]
+	editor = vim
+[alias]
+	st = status
+	co = checkout
+    cb = checkout -b
+	ap = add -p
+	ca = commit --amend
+	ci = commit
+    cm = commit --message
+	cl = clone
+    cv = commit --dry-run --verbose
+	di = diff
+	ds = diff --staged
+    ri = rebase --interactive
+
+    config-work-identiy = !git config --local user.name "\"Timo Pawelka\"" && git config --local user.email "pawelka@cqse.eu"
+    config-github-identity = !git config --local user.name "Macariel" && git config --local user.email "timo.pawelka@gmail.com"
+
+    diff-latest = diff HEAD~1
+    diff-commit = !sh -c 'git diff $1~ $1' -
+
+    show-branch-commits = "! f() { branch=`git rev-parse --abbrev-ref HEAD`; git log $branch ^master;}; f"
+	list-ahead-branches = !sh -c \"git branch -v | grep 'ahead'\"
+    delete-dead-branches = "! f() { git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`;do git branch -D $branch; done }; f"
+
+	log-messages = !sh -c \"git log -$1 --format=%B\" -
+    lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+
+    ccm = "! createCrCommit"
+    cc0 = "! createCrCommit \"$1\" 0"
+[merge]
+	tool = meld
+[mergetool]
+	keepBackup = false

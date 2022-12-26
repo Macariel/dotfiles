@@ -1,0 +1,9 @@
+#!/bin/zsh - 
+cd /home/pawelka/Workspace/teamscale-merge-helper
+
+tmux new-session \; \
+	split-window -h \; \
+	select-pane -t 1 \; \
+	send-keys 'cd working-copy;clear' C-m \; \
+	select-pane -t 0 \; \
+	send-keys 'python merge-helper.py' C-m \; 
