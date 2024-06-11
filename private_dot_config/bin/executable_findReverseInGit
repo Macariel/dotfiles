@@ -1,0 +1,17 @@
+#!/bin/bash - 
+# Tries to find the given command in the current git repository, by going reverse in the 
+# directories until the root of the repository
+dir=$PWD
+cmd=$1
+path=""
+while [[ $(git status) ]]; do
+  if [[ -f $cmd ]]; then
+    cd $dir
+    shift
+    ./$path$cmd $@
+    exit 0
+  fi
+  cd ..
+  path=$path"../"
+done
+

@@ -44,9 +44,10 @@ endif
 "End dein Scripts-------------------------
 set number " Personal vim settings
 set wildmenu " set cursorline
-set tabstop=4 " show existing tab with 4 spaces width
-set shiftwidth=4 " when indenting with '>', use 4 spaces width
-" set expandtab " On pressing tab, insert 4 spaces
+set tabstop=2 " show existing tab with 4 spaces width
+set shiftwidth=2 " when indenting with '>', use 4 spaces width
+set expandtab " On pressing tab, insert 4 spaces
+" set smarttab " Autotabs for certain code
 set ttimeout
 set ttimeoutlen=100 " Remove the 1sec delay when leaving the visual mode
 set timeoutlen=3000
@@ -117,3 +118,8 @@ command BashSupportToBash :let g:BASH_Executable='/bin/bash'
 "let &packpath=&runtimepath
 "source ~/.vimrc
 autocmd BufNewFile,BufRead *.hcl :set filetype=terraform
+
+" Disable macro recording
+map q <Nop>
+" Disable command line window
+nnoremap q: <Nop>

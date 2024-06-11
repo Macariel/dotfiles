@@ -22,16 +22,3 @@ alias gcli="/home/pawelka/Workspace/cqse-it/cloud-config/gcli"
 
 # QtCreator setup
 alias qt_export="export QTC_TS_DOCKER_PARAMS=\"-e DISPLAY --net=host --device=/dev/dri --volume=/home/pawelka/.Xauthority:/root/.Xauthority\""
-
-# Auto-type replacement
-alias tcb='xdotool sleep 2 type --clearmodifiers "`xclip -o -selection clipboard`"'
-
-# Merge Checks
-alias merge-java-check="./gradlew bootstrap > /dev/null; cd engine > /dev/null; ../gradlew compileTestJava; cd .. > /dev/null"
-alias merge-ts-check="./gradlew bootstrap > /dev/null; cd engine/com.teamscale.ui > /dev/null; yarn run check-and-lint; cd - > /dev/null"
-
-# KDE
-alias restart-plasma="killall plasmashell && kstart5 plasmashell"
-
-# Teamscale
-alias ts-run="python /home/pawelka/Workspace/teamscale-run-helper/teamscale_run.py"

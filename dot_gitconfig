@@ -29,9 +29,11 @@
 	log-messages = !sh -c \"git log -$1 --format=%B\" -
     lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 
-    ccm = "! createCrCommit"
-    cc0 = "! createCrCommit \"$1\" 0"
+    ccm = "! createCommitWithTicketId"
+    cc0 = "! createCommitWithTicketId \"$1\" 0"
 [merge]
 	tool = meld
 [mergetool]
 	keepBackup = false
+[safe]
+	directory = /code/qtcreator-teamscale

@@ -1,6 +1,18 @@
 #!/bin/bash - 
 # Packages
-sudo pacman --needed -Syu git python python-pip docker docker-compose jq arandr tmux thefuck htop ripgrep tree z fzf xclip tig exa base-devel powerline-fonts wmctrl xdotools papirus-icon-theme networkmanager-openvpn bluez bluez-utils acpica archlinux-keyring guake
+sudo pacman --needed -Syu git gvim python python-pip docker docker-compose jq base-devel networkmanager-openvpn bluez bluez-utils acpica archlinux-keyring unzip man
+
+# Shell
+sudo pacman --needed -Syu zsh tmux thefuck htop ripgrep tree z fzf tig exa
+sudo chsh -s /bin/zsh root
+sudo chsh -s /bin/zsh pawelka
+
+# Fonts and icons
+sudo pacman --needed -Syu \
+  ttf-roboto-mono `# System` \
+  ttf-hack powerline-fonts `# Terminal` \
+  papirus-icon-theme 
+
 
 # Install yay
 if [[ ! $(command -v yay) ]]; then
@@ -12,4 +24,7 @@ if [[ ! $(command -v yay) ]]; then
 fi
 
 # Work
-yay --needed -Syu visual-studio-code-bin intellij-idea-ultimate-edition-jre intellij-idea-ultimate-edition google-chrome ferdium-bin pnpm terraform terragrunt npm nodejs maven gradle jdk-openjdk jdk8-openjdk
+yay --needed -Syu pnpm terraform terragrunt npm nodejs maven gradle jdk-openjdk jdk17-openjdk jdk8-openjdk
+
+# Programs
+yay --needed -S jetbrains-toolbox visual-studio-code-bin firefox google-chrome ferdium-bin guake 1password google-cloud-cli  
