@@ -6,9 +6,7 @@ alias dc="sudo docker-compose"
 alias dce="sudo docker-compose exec"
 alias dclog="sudo docker-compose logs --tail 50 -f"
 alias d="sudo docker"
-alias gw="./gradlew"
-alias gwb="./gradlew bootstrap"
-alias gwcb="./gradlew clean bootstrap"
+alias gw="findReverseInGit gradlew"
 eval $(thefuck --alias) # insert the 'fuck' alias
 
 alias tg="terragrunt"
@@ -18,7 +16,7 @@ alias ls="exa"
 alias la="exa -la"
 
 # CQSE it
-alias gcli="/home/pawelka/Workspace/cqse-it/cloud-config/gcli"
+alias gcli="findReverseInGit gcli"
 
 # QtCreator setup
 alias qt_export="export QTC_TS_DOCKER_PARAMS=\"-e DISPLAY --net=host --device=/dev/dri --volume=/home/pawelka/.Xauthority:/root/.Xauthority\""
