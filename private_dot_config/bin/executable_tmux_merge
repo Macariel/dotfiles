@@ -1,9 +1,9 @@
 #!/bin/zsh - 
-cd /home/pawelka/Workspace/release/teamscale-merge-helper
+cd /home/pawelka/Workspace/release/teamscale-release-helper
 
 tmux new-session \; \
 	split-window -h \; \
 	select-pane -t 1 \; \
-	send-keys 'cd data/teamscale;clear' C-m \; \
+	send-keys 'cd data/teamscale_merge;clear' C-m \; \
 	select-pane -t 0 \; \
 	send-keys 'source venv/bin/activate; python merge-helper.py' C-m \; 

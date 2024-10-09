@@ -39,9 +39,9 @@ export PATH="$PATH:$HOME/.npm-global/bin" # npm
 export PATH="$PATH:/opt/google-cloud-sdk/bin" # gcloud
 
 ## Variables
-export JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
 export CLOUDSDK_PYTHON_SITEPACKAGES=1
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket" # SSH agent on startup
+#export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 
 source $ZSH/oh-my-zsh.sh
 

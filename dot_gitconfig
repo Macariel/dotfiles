@@ -32,7 +32,16 @@
   ccm = "! createCommitWithTicketId"
   cc0 = "! createCommitWithTicketId \"$1\" 0"
 [merge]
-  tool = meld
+  tool = intellij 
+[mergetool "intellij"]
+  cmd = $HOME'/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate-2/bin/idea.sh' merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
+	trustExitCode = true
+[diff]
+	tool = intellij
+[difftool "intellij"]
+	cmd = $HOME'/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate-2/bin/idea.sh' diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
+	trustExitCode = true
+	keepBackup = false
 [mergetool]
   keepBackup = false
 [safe]
