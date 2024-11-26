@@ -4,6 +4,6 @@ cd /home/pawelka/Workspace/release/teamscale-release-helper
 tmux new-session \; \
 	split-window -h \; \
 	select-pane -t 1 \; \
-	send-keys 'cd data/teamscale_release;clear' C-m \; \
+	send-keys 'cd data/teamscale-release;clear' C-m \; \
 	select-pane -t 0 \; \
 	send-keys 'clear; source venv/bin/activate; python release-helper.py' C-m \; 
