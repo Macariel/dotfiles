@@ -6,6 +6,7 @@ alias dc="sudo docker compose"
 alias dce="sudo docker compose exec"
 alias dclog="sudo docker compose logs --tail 50 -f"
 alias d="sudo docker"
+alias drun="sudo docker run -it --rm"
 alias gw="findReverseInGit gradlew"
 eval $(thefuck --alias) # insert the 'fuck' alias
 
