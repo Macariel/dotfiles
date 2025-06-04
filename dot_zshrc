@@ -42,6 +42,7 @@ export PATH="$PATH:/opt/google-cloud-sdk/bin" # gcloud
 export CLOUDSDK_PYTHON_SITEPACKAGES=1
 export CLOUDSDK_PYTHON="/home/pawelka/.pyenv/versions/3.12.8/bin/python"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket" # SSH agent on startup
+export GIT_ASKPASS=/usr/bin/ksshaskpass
 #export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 
 source $ZSH/oh-my-zsh.sh

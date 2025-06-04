@@ -1,0 +1,5 @@
+#!/bin/zsh - 
+cd /home/pawelka/Workspace/misc/overtime-calculator
+
+tmux new-session \; \
+	send-keys 'source venv/bin/activate; python overtime.py' C-m \; 
