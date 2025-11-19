@@ -1,6 +1,6 @@
 #!/bin/bash - 
 # Packages
-sudo pacman --needed -Syu git gvim python python-pip docker docker-compose jq base-devel networkmanager-openvpn bluez bluez-utils acpica archlinux-keyring unzip man rsync bind
+sudo pacman --needed -Syu git curl gvim python python-pip docker docker-compose jq base-devel networkmanager-openvpn bluez bluez-utils acpica archlinux-keyring unzip man rsync bind
 
 # Shell
 sudo pacman --needed -Syu zsh tmux thefuck htop ripgrep tree z fzf tig exa
