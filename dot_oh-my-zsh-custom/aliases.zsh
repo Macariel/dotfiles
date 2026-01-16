@@ -9,15 +9,8 @@ alias d="sudo docker"
 alias drun="sudo docker run -it --rm"
 alias gw="findReverseInGit gradlew"
 eval $(thefuck --alias) # insert the 'fuck' alias
-
 alias tg="terragrunt"
-
-# Extra programs
 alias ls="exa"
 alias la="exa -la"
-
-# CQSE it
+alias cz="chezmoi"
 alias gcli="findReverseInGit gcli"
-
-# QtCreator setup
-alias qt_export="export QTC_TS_DOCKER_PARAMS=\"-e DISPLAY --net=host --device=/dev/dri --volume=/home/pawelka/.Xauthority:/root/.Xauthority\""
