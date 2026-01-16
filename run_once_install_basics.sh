@@ -30,11 +30,14 @@ yay --needed -Syu pnpm terraform terragrunt npm nodejs maven gradle jdk-openjdk 
 yay --needed -S jetbrains-toolbox visual-studio-code-bin firefox google-chrome ferdium-bin guake 1password 1password-cli
 
 # GCloud
-curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz
-tar -xf google-cloud-cli-linux-x86_64.tar.gz
-sudo mv google-cloud-sdk /opt/google-cloud-sdk
-/opt/google-cloud-sdk/install.sh
-/opt/google-cloud-sdk/bin/gcloud init
+if ! command -v gcloud &> /dev/null; then
+	curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz
+	tar -xf google-cloud-cli-linux-x86_64.tar.gz
+	rm google-cloud-cli-linux-x86_64.tar.gz
+	sudo mv google-cloud-sdk /opt/google-cloud-sdk
+	/opt/google-cloud-sdk/install.sh
+	/opt/google-cloud-sdk/bin/gcloud init
+fi
 
 # Claude Code
 yay -S claude-code

@@ -1,0 +1,4 @@
+#!/bin/bash
+# hash: {{ include "settings/guake.settings" | sha256sum }}
+echo "Setting guake preferences"
+guake --restore-preferences {{ .chezmoi.sourceDir }}/settings/guake.settings
