@@ -2,3 +2,6 @@ encryption = "age"
 [age]
   identity = "~/.config/chezmoi/key.txt"
   recipient = "age19z2wwdllklzzc4tvcrh4ejywqwcahp5klqe83mzk369tztezrpmstfp6ud"
+
+[data]                                                                                                                                                                                                                                                     
+    is_work = {{ promptBoolOnce . "is_work" "Is this a work machine?" }}  

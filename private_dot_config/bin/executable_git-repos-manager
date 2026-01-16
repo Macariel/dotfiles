@@ -1,0 +1,90 @@
+#!/bin/bash
+# Git repository configuration management script
+
+WORKSPACE_BASE="/home/pawelka"
+
+export_config() {
+    echo "# Git repository configuration" >&2
+    echo "# Format: relative_path;git_origin_url" >&2
+
+    # Find all .git directories under /home/pawelka/Workspace with max depth of 5
+    find "$WORKSPACE_BASE/Workspace" -maxdepth 5 -type d -name ".git" 2>/dev/null | while read -r git_dir; do
+        # Get the repository directory (parent of .git)
+        repo_dir=$(dirname "$git_dir")
+
+        # Get the origin remote URL
+        origin_url=$(git -C "$repo_dir" remote get-url origin 2>/dev/null)
+
+        if [ -n "$origin_url" ]; then
+            # Make path relative to /home/pawelka
+            rel_path="${repo_dir#$WORKSPACE_BASE/}"
+            echo "$rel_path;$origin_url"
+        fi
+    done
+}
+
+import_config() {
+    local config_input="$1"
+
+    if [ -z "$config_input" ]; then
+        echo "Error: No config file or input provided" >&2
+        echo "Usage: $0 import <config-file>" >&2
+        exit 1
+    fi
+
+    if [ ! -f "$config_input" ]; then
+        echo "Error: Config file not found: $config_input" >&2
+        exit 1
+    fi
+
+    echo "Importing git repository config from: $config_input"
+
+    while IFS=';' read -r repo_path git_url; do
+        # Skip empty lines and comments
+        [[ -z "$repo_path" || "$repo_path" =~ ^# ]] && continue
+
+        full_path="$WORKSPACE_BASE/$repo_path"
+
+        if [ -d "$full_path" ]; then
+            echo "✓ Repository already exists: $repo_path"
+        else
+            echo "→ Cloning repository to: $repo_path"
+
+            # Extract parent directory and target directory name
+            parent_dir=$(dirname "$full_path")
+            target_name=$(basename "$full_path")
+
+            # Create parent directory if it doesn't exist
+            mkdir -p "$parent_dir"
+
+            # Clone the repository
+            if (cd "$parent_dir" && git clone "$git_url" "$target_name"); then
+                echo "✓ Successfully cloned: $repo_path"
+            else
+                echo "✗ Failed to clone: $repo_path" >&2
+            fi
+        fi
+    done < "$config_input"
+}
+
+# Main script logic
+case "$1" in
+    export)
+        export_config
+        ;;
+    import)
+        import_config "$2"
+        ;;
+    *)
+        echo "Usage: $0 {export|import}" >&2
+        echo "" >&2
+        echo "Commands:" >&2
+        echo "  export              - Export a config of all git repositories under $WORKSPACE_BASE/Workspace" >&2
+        echo "  import <file>       - Import repositories from config file that don't exist yet" >&2
+        echo "" >&2
+        echo "Examples:" >&2
+        echo "  $0 export > repos.conf" >&2
+        echo "  $0 import repos.conf" >&2
+        exit 1
+        ;;
+esac
