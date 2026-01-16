@@ -3,9 +3,13 @@
 sudo pacman --needed -Syu git tar curl gvim python python-pip docker docker-compose jq base-devel networkmanager-openvpn bluez bluez-utils acpica archlinux-keyring unzip man rsync inetutils bind
 
 # Shell
-sudo pacman --needed -Syu zsh tmux thefuck htop ripgrep tree z fzf tig exa fd
+sudo pacman --needed -Syu zsh tmux thefuck htop ripgrep tree z fzf tig exa fd pyenv
 sudo chsh -s /bin/zsh root
 sudo chsh -s /bin/zsh pawelka
+
+# Setup locale
+echo "Setting up locale"
+sudo localectl set-x11-keymap de pc105 neo
 
 # Fonts and icons
 sudo pacman --needed -Syu \
@@ -27,7 +31,7 @@ fi
 yay --needed -Syu pnpm terraform terragrunt npm nodejs maven gradle jdk-openjdk jdk21-openjdk
 
 # Programs
-yay --needed -S jetbrains-toolbox visual-studio-code-bin firefox google-chrome ferdium-bin guake 1password 1password-cli
+yay --needed -S jetbrains-toolbox visual-studio-code-bin firefox google-chrome ferdium-bin guake 1password 1password-cli claude-code
 
 # GCloud
 if ! command -v gcloud &> /dev/null; then
@@ -39,5 +43,3 @@ if ! command -v gcloud &> /dev/null; then
 	/opt/google-cloud-sdk/bin/gcloud init
 fi
 
-# Claude Code
-yay -S claude-code

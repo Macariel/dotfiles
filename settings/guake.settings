@@ -37,7 +37,7 @@ window-valignment=0
 window-width=100
 
 [keybindings/global]
-show-hide='<Primary>dead_circumflex'
+show-hide='<Alt>t'
 
 [keybindings/local]
 move-tab-left='<Primary><Shift>Left'
