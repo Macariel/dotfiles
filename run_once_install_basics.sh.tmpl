@@ -1,7 +1,7 @@
 #!/bin/bash - 
 # Packages
 sudo pacman -Syu
-sudo pacman --needed -S git git-lfs tar curl gvim python python-pip docker docker-compose jq base-devel networkmanager-openvpn bluez bluez-utils acpica archlinux-keyring unzip man rsync inetutils bind
+sudo pacman --needed -S git git-lfs tar curl gvim python python-pip docker docker-compose jq base-devel networkmanager-openvpn bluez bluez-utils acpica archlinux-keyring unzip man rsync inetutils bind bc
 
 # Shell
 sudo pacman --needed -S zsh tmux thefuck htop ripgrep tree z fzf tig exa fd pyenv
@@ -32,13 +32,10 @@ yay --needed -S visual-studio-code-bin firefox guake 1password ferdium-bin
 
 # Work specific
 {{- if .is_work }}
-yay --needed -S pnpm terraform terragrunt npm nodejs maven gradle jdk-openjdk jdk21-openjdk
+yay --needed -S pnpm terraform terragrunt npm nodejs maven gradle jdk-openjdk jdk17-openjdk jdk21-openjdk
 
 # Programs
 yay --needed -S jetbrains-toolbox google-chrome 1password-cli claude-code
-
-# Claude plugins
-claude plugin install code-simplifier
 
 # GCloud
 if ! command -v gcloud &> /dev/null; then
