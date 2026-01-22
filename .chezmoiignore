@@ -1,3 +1,8 @@
 docs/**
 settings/**
 key.txt.age
+
+{{ if not .is_work }}
+Workspace/**
+{{ end }}
+
